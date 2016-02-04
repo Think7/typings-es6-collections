@@ -18,89 +18,70 @@
  and limitations under the License.
  ***************************************************************************** */
 
-interface IteratorResult<T> {
+export interface IteratorResult<T> {
     done: boolean;
     value?: T;
 }
 
-interface Iterator<T> {
+export interface Iterator<T> {
     next(value?: any): IteratorResult<T>;
     return?(value?: any): IteratorResult<T>;
     throw?(e?: any): IteratorResult<T>;
 }
 
-interface ForEachable<T> {
+export interface ForEachable<T> {
     forEach(callbackfn: (value: T) => void): void;
 }
 
-interface Map<K, V> {
-    clear(): void;
-    delete(key: K): boolean;
-    forEach(callbackfn: (value: V, index: K, map: Map<K, V>) => void, thisArg?: any): void;
-    get(key: K): V;
-    has(key: K): boolean;
-    set(key: K, value?: V): Map<K, V>;
-    entries(): Iterator<[K, V]>;
-    keys(): Iterator<K>;
-    values(): Iterator<V>;
-    size: number;
+export class Map<K, V> {
+    constructor();
+    constructor(iterable: ForEachable<[K, V]>);
+
+    public clear(): void;
+    public delete(key: K): boolean;
+    public forEach(callbackfn: (value: V, index: K, map: Map<K, V>) => void, thisArg?: any): void;
+    public get(key: K): V;
+    public has(key: K): boolean;
+    public set(key: K, value?: V): Map<K, V>;
+    public entries(): Iterator<[K, V]>;
+    public keys(): Iterator<K>;
+    public values(): Iterator<V>;
+    public size: number;
 }
 
-interface MapConstructor {
-    new <K, V>(): Map<K, V>;
-    new <K, V>(iterable: ForEachable<[K, V]>): Map<K, V>;
-    prototype: Map<any, any>;
+export class Set<T> {
+    constructor();
+    constructor(iterable: ForEachable<T>);
+
+    public add(value: T): Set<T>;
+    public clear(): void;
+    public delete(value: T): boolean;
+    public forEach(callbackfn: (value: T, index: T, set: Set<T>) => void, thisArg?: any): void;
+    public has(value: T): boolean;
+    public entries(): Iterator<[T, T]>;
+    public keys(): Iterator<T>;
+    public values(): Iterator<T>;
+    public size: number;
 }
 
-declare var Map: MapConstructor;
+export class WeakMap<K, V> {
+    constructor();
+    constructor(iterable: ForEachable<[K, V]>);
 
-interface Set<T> {
-    add(value: T): Set<T>;
-    clear(): void;
-    delete(value: T): boolean;
-    forEach(callbackfn: (value: T, index: T, set: Set<T>) => void, thisArg?: any): void;
-    has(value: T): boolean;
-    entries(): Iterator<[T, T]>;
-    keys(): Iterator<T>;
-    values(): Iterator<T>;
-    size: number;
+    public delete(key: K): boolean;
+    public clear(): void;
+    public get(key: K): V;
+    public has(key: K): boolean;
+    public set(key: K, value?: V): WeakMap<K, V>;
 }
 
-interface SetConstructor {
-    new <T>(): Set<T>;
-    new <T>(iterable: ForEachable<T>): Set<T>;
-    prototype: Set<any>;
+export class WeakSet<T> {
+    constructor();
+    constructor(iterable: ForEachable<T>);
+
+    public delete(value: T): boolean;
+    public clear(): void;
+    public add(value: T): WeakSet<T>;
+    public has(value: T): boolean;
 }
 
-declare var Set: SetConstructor;
-
-interface WeakMap<K, V> {
-    delete(key: K): boolean;
-    clear(): void;
-    get(key: K): V;
-    has(key: K): boolean;
-    set(key: K, value?: V): WeakMap<K, V>;
-}
-
-interface WeakMapConstructor {
-    new <K, V>(): WeakMap<K, V>;
-    new <K, V>(iterable: ForEachable<[K, V]>): WeakMap<K, V>;
-    prototype: WeakMap<any, any>;
-}
-
-declare var WeakMap: WeakMapConstructor;
-
-interface WeakSet<T> {
-    delete(value: T): boolean;
-    clear(): void;
-    add(value: T): WeakSet<T>;
-    has(value: T): boolean;
-}
-
-interface WeakSetConstructor {
-    new <T>(): WeakSet<T>;
-    new <T>(iterable: ForEachable<T>): WeakSet<T>;
-    prototype: WeakSet<any>;
-}
-
-declare var WeakSet: WeakSetConstructor;
