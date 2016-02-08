@@ -1,37 +1,39 @@
 // Type definitions for es6-collections v0.5.1
 // Project: https://github.com/WebReflection/es6-collections/
 // Definitions by: Ron Buckton <http://github.com/rbuckton>
-// Definitions: https://github.com/borisyankov/DefinitelyTyped
+// Updated for Typings by Think7 <http://github.com/Think7>
 
 /* *****************************************************************************
  Copyright (c) Microsoft Corporation. All rights reserved.
  Licensed under the Apache License, Version 2.0 (the "License"); you may not use
  this file except in compliance with the License. You may obtain a copy of the
  License at http://www.apache.org/licenses/LICENSE-2.0
+
  THIS CODE IS PROVIDED *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
  KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
  WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
  MERCHANTABLITY OR NON-INFRINGEMENT.
+
  See the Apache Version 2.0 License for specific language governing permissions
  and limitations under the License.
  ***************************************************************************** */
 
-export interface IteratorResult<T> {
+interface IteratorResult<T> {
     done: boolean;
     value?: T;
 }
 
-export interface Iterator<T> {
+interface Iterator<T> {
     next(value?: any): IteratorResult<T>;
     return?(value?: any): IteratorResult<T>;
     throw?(e?: any): IteratorResult<T>;
 }
 
-export interface ForEachable<T> {
+interface ForEachable<T> {
     forEach(callbackfn: (value: T) => void): void;
 }
 
-export interface Map<K, V> {
+interface Map<K, V> {
     clear(): void;
     delete(key: K): boolean;
     forEach(callbackfn: (value: V, index: K, map: Map<K, V>) => void, thisArg?: any): void;
@@ -44,15 +46,15 @@ export interface Map<K, V> {
     size: number;
 }
 
-export interface MapConstructor {
+interface MapConstructor {
     new <K, V>(): Map<K, V>;
     new <K, V>(iterable: ForEachable<[K, V]>): Map<K, V>;
     prototype: Map<any, any>;
 }
 
-//export var Map: MapConstructor;
+declare var Map: MapConstructor;
 
-export interface Set<T> {
+interface Set<T> {
     add(value: T): Set<T>;
     clear(): void;
     delete(value: T): boolean;
@@ -64,15 +66,15 @@ export interface Set<T> {
     size: number;
 }
 
-export interface SetConstructor {
+interface SetConstructor {
     new <T>(): Set<T>;
     new <T>(iterable: ForEachable<T>): Set<T>;
     prototype: Set<any>;
 }
 
-//export var Set: SetConstructor;
+declare var Set: SetConstructor;
 
-export interface WeakMap<K, V> {
+interface WeakMap<K, V> {
     delete(key: K): boolean;
     clear(): void;
     get(key: K): V;
@@ -80,26 +82,26 @@ export interface WeakMap<K, V> {
     set(key: K, value?: V): WeakMap<K, V>;
 }
 
-export interface WeakMapConstructor {
+interface WeakMapConstructor {
     new <K, V>(): WeakMap<K, V>;
     new <K, V>(iterable: ForEachable<[K, V]>): WeakMap<K, V>;
     prototype: WeakMap<any, any>;
 }
 
-//export var WeakMap: WeakMapConstructor;
+declare var WeakMap: WeakMapConstructor;
 
-export interface WeakSet<T> {
+interface WeakSet<T> {
     delete(value: T): boolean;
     clear(): void;
     add(value: T): WeakSet<T>;
     has(value: T): boolean;
 }
 
-export interface WeakSetConstructor {
+interface WeakSetConstructor {
     new <T>(): WeakSet<T>;
     new <T>(iterable: ForEachable<T>): WeakSet<T>;
     prototype: WeakSet<any>;
 }
 
-//export var WeakSet: WeakSetConstructor;
+declare var WeakSet: WeakSetConstructor;
 
