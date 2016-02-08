@@ -31,7 +31,7 @@ interface ForEachable<T> {
     forEach(callbackfn: (value: T) => void): void;
 }
 
-interface Map<K, V> {
+export interface Map<K, V> {
     clear(): void;
     delete(key: K): boolean;
     forEach(callbackfn: (value: V, index: K, map: Map<K, V>) => void, thisArg?: any): void;
@@ -50,9 +50,9 @@ interface MapConstructor {
     prototype: Map<any, any>;
 }
 
-export var Map: MapConstructor;
+//export var Map: MapConstructor;
 
-interface Set<T> {
+export interface Set<T> {
     add(value: T): Set<T>;
     clear(): void;
     delete(value: T): boolean;
@@ -70,9 +70,9 @@ interface SetConstructor {
     prototype: Set<any>;
 }
 
-export var Set: SetConstructor;
+//export var Set: SetConstructor;
 
-interface WeakMap<K, V> {
+export interface WeakMap<K, V> {
     delete(key: K): boolean;
     clear(): void;
     get(key: K): V;
@@ -86,20 +86,20 @@ interface WeakMapConstructor {
     prototype: WeakMap<any, any>;
 }
 
-export var WeakMap: WeakMapConstructor;
+//export var WeakMap: WeakMapConstructor;
 
-interface WeakSet<T> {
+export interface WeakSet<T> {
     delete(value: T): boolean;
     clear(): void;
     add(value: T): WeakSet<T>;
     has(value: T): boolean;
 }
 
-interface WeakSetConstructor {
+export interface WeakSetConstructor {
     new <T>(): WeakSet<T>;
     new <T>(iterable: ForEachable<T>): WeakSet<T>;
     prototype: WeakSet<any>;
 }
 
-export var WeakSet: WeakSetConstructor;
+//export var WeakSet: WeakSetConstructor;
 
