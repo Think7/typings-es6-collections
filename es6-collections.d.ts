@@ -16,18 +16,18 @@
  and limitations under the License.
  ***************************************************************************** */
 
-interface IteratorResult<T> {
+export interface IteratorResult<T> {
     done: boolean;
     value?: T;
 }
 
-interface Iterator<T> {
+export interface Iterator<T> {
     next(value?: any): IteratorResult<T>;
     return?(value?: any): IteratorResult<T>;
     throw?(e?: any): IteratorResult<T>;
 }
 
-interface ForEachable<T> {
+export interface ForEachable<T> {
     forEach(callbackfn: (value: T) => void): void;
 }
 
@@ -44,7 +44,7 @@ export interface Map<K, V> {
     size: number;
 }
 
-interface MapConstructor {
+export interface MapConstructor {
     new <K, V>(): Map<K, V>;
     new <K, V>(iterable: ForEachable<[K, V]>): Map<K, V>;
     prototype: Map<any, any>;
@@ -64,7 +64,7 @@ export interface Set<T> {
     size: number;
 }
 
-interface SetConstructor {
+export interface SetConstructor {
     new <T>(): Set<T>;
     new <T>(iterable: ForEachable<T>): Set<T>;
     prototype: Set<any>;
@@ -80,7 +80,7 @@ export interface WeakMap<K, V> {
     set(key: K, value?: V): WeakMap<K, V>;
 }
 
-interface WeakMapConstructor {
+export interface WeakMapConstructor {
     new <K, V>(): WeakMap<K, V>;
     new <K, V>(iterable: ForEachable<[K, V]>): WeakMap<K, V>;
     prototype: WeakMap<any, any>;
