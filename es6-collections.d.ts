@@ -50,7 +50,7 @@ interface MapConstructor {
     prototype: Map<any, any>;
 }
 
-declare var Map: MapConstructor;
+export var Map: MapConstructor;
 
 interface Set<T> {
     add(value: T): Set<T>;
@@ -70,7 +70,7 @@ interface SetConstructor {
     prototype: Set<any>;
 }
 
-declare var Set: SetConstructor;
+export var Set: SetConstructor;
 
 interface WeakMap<K, V> {
     delete(key: K): boolean;
@@ -86,7 +86,7 @@ interface WeakMapConstructor {
     prototype: WeakMap<any, any>;
 }
 
-declare var WeakMap: WeakMapConstructor;
+export var WeakMap: WeakMapConstructor;
 
 interface WeakSet<T> {
     delete(value: T): boolean;
@@ -101,5 +101,5 @@ interface WeakSetConstructor {
     prototype: WeakSet<any>;
 }
 
-declare var WeakSet: WeakSetConstructor;
+export var WeakSet: WeakSetConstructor;
 
